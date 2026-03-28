@@ -6,44 +6,60 @@ html {
 /* Настройка фона для всего сайта */
 body {
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-        url('volvo-fh12.jpg'); /* ПРОВЕРЬ: если файл .png, замени на .png */
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url('volvo-fh12.jpg'); 
     
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-attachment: scroll; /* Фон двигается при скролле */
     color: white;
+    min-height: 100vh;
 }
 
-/* Чтобы карточки запчастей были на белом фоне и читались */
-.bg-white {
-    background-color: rgba(255, 255, 255, 0.85) !important; /* Делаем чуть прозрачнее */
-    backdrop-filter: blur(10px); /* Размытие фона за карточкой */
-    color: #111827 !important;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая светлая рамка */
+/* --- ЭФФЕКТ ПРОЗРАЧНОСТИ (Glassmorphism) --- */
+
+/* Делаем навигацию и карточки прозрачными */
+nav, .bg-white, aside div {
+    background-color: rgba(255, 255, 255, 0.75) !important; /* 75% прозрачности */
+    backdrop-filter: blur(12px) !important; /* Сильное размытие фона за блоком */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Тонкая светлая рамка */
 }
 
-/* Анимации появления */
+/* Исправляем цвет текста внутри прозрачных блоков, чтобы он был четким */
+nav span, nav a, .bg-white h3, .bg-white p, aside button {
+    color: #111827 !important; /* Темно-серый/черный текст */
+}
+
+/* Анимации появления карточек */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .fade-in-up { 
-    animation: fadeInUp 0.6s ease-out; 
+    animation: fadeInUp 0.7s ease-out; 
 }
 
-/* Стиль карточек */
+/* Эффект при наведении на карточку */
 .product-card {
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.9) !important; /* При наведении становится чуть плотнее */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 /* Кнопки фильтров */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
 .filter-btn.active {
     background-color: #1d4ed8 !important;
     color: white !important;
+    transform: scale(1.05);
 }
