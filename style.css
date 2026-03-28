@@ -1,38 +1,98 @@
-/* Плавный скролл */
+/* 1. Общие настройки страницы */
 html {
     scroll-behavior: smooth;
 }
 
-/* Настройка фона для всего сайта */
 body {
+    /* Фоновое изображение */
     background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
         url('volvo-fh12.jpg'); 
     
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll; /* Фон двигается при скролле */
+    background-attachment: scroll; /* Фон уходит вверх при скролле */
     color: white;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
     min-height: 100vh;
 }
 
-/* --- ЭФФЕКТ ПРОЗРАЧНОСТИ (Glassmorphism) --- */
-
-/* Делаем навигацию и карточки прозрачными */
-nav, .bg-white, aside div {
-    background-color: rgba(255, 255, 255, 0.75) !important; /* 75% прозрачности */
-    backdrop-filter: blur(12px) !important; /* Сильное размытие фона за блоком */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Тонкая светлая рамка */
+/* 2. Прозрачность для блоков (Glassmorphism) */
+/* Применяем ко всем белым элементам: навигация, меню категорий, карточки */
+nav, 
+.bg-white, 
+aside div, 
+.product-card {
+    background-color: rgba(255, 255, 255, 0.7) !important; /* Прозрачность 70% */
+    backdrop-filter: blur(15px) !important; /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    border-radius: 1rem !important;
 }
 
-/* Исправляем цвет текста внутри прозрачных блоков, чтобы он был четким */
-nav span, nav a, .bg-white h3, .bg-white p, aside button {
-    color: #111827 !important; /* Темно-серый/черный текст */
+/* 3. Исправление текстов внутри прозрачных блоков */
+nav span, 
+nav a, 
+aside h3, 
+aside button,
+.product-card h3,
+.product-card p {
+    color: #111827 !important; /* Делаем текст темным, чтобы его было видно */
 }
 
-/* Анимации появления карточек */
+/* 4. Настройка заголовка (Header) */
+header {
+    background: transparent !important; /* Убираем синюю полосу */
+    padding: 80px 20px !important;
+}
+
+header h1 {
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.8); /* Тень для текста на фоне фото */
+    font-weight: 900 !important;
+}
+
+/* Поле поиска */
+#searchInput {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid #1d4ed8 !important;
+    color: #111827 !important;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(29, 78, 216, 0.5) !important;
+}
+
+/* 5. Кнопки и интерактив */
+.filter-btn {
+    transition: all 0.3s ease;
+    border: none !important;
+    margin-bottom: 5px;
+}
+
+.filter-btn:hover {
+    background-color: rgba(29, 78, 216, 0.1) !important;
+}
+
+.filter-btn.active {
+    background-color: #1d4ed8 !important;
+    color: white !important;
+}
+
+/* Анимация карточек товаров */
+.product-card {
+    transition: all 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -40,26 +100,4 @@ nav span, nav a, .bg-white h3, .bg-white p, aside button {
 
 .fade-in-up { 
     animation: fadeInUp 0.7s ease-out; 
-}
-
-/* Эффект при наведении на карточку */
-.product-card {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.product-card:hover {
-    transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.9) !important; /* При наведении становится чуть плотнее */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Кнопки фильтров */
-.filter-btn {
-    transition: all 0.3s ease;
-}
-
-.filter-btn.active {
-    background-color: #1d4ed8 !important;
-    color: white !important;
-    transform: scale(1.05);
 }
