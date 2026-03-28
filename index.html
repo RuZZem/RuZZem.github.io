@@ -1,73 +1,77 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Volvo Parts Pro</title>
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f5f5f5;
-}
-header {
-  background: #222;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-.container {
-  padding: 20px;
-}
-.card {
-  background: white;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 10px;
-}
-button {
-  background: #25D366;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RuZZem Volvo Parts — Каталог</title>
+    <!-- Подключаем Tailwind CSS для крутого дизайна -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-<body>
+    <!-- Шапка сайта -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-blue-900 tracking-tighter">RuZZem</span>
+                <span class="text-lg font-light text-gray-400">| VOLVO PARTS</span>
+            </div>
+            <a href="https://wa.me/99365000000" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-transform active:scale-95">
+                WhatsApp
+            </a>
+        </div>
+    </nav>
 
-<header>
-<h1>🚜 Volvo Construction Parts</h1>
-<p>Запчасти для строительной техники Volvo</p>
-</header>
+    <!-- Блок поиска -->
+    <header class="bg-blue-900 text-white py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4 fade-in-down">Запчасти Volvo в наличии</h1>
+            <p class="text-blue-200 mb-8 fade-in">Поиск по модели, названию или артикулу</p>
+            
+            <div class="relative max-w-2xl mx-auto fade-in-up">
+                <input type="text" id="searchInput" placeholder="Поиск запчасти..." class="w-full px-6 py-4 rounded-xl text-gray-800 shadow-2xl focus:ring-4 focus:ring-blue-500 outline-none text-lg">
+            </div>
+        </div>
+    </header>
 
-<div class="container">
+    <!-- Основной контент -->
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <div class="flex flex-col md:flex-row gap-8">
+            
+            <!-- Боковое меню (Фильтры) -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 sticky top-24">
+                    <h3 class="font-bold text-gray-500 uppercase text-xs mb-4 tracking-widest">Категории</h3>
+                    <div class="space-y-2" id="categoryFilter">
+                        <button data-category="all" class="filter-btn active w-full text-left px-4 py-2 rounded-xl transition-all">📦 Все детали</button>
+                        <button data-category="filters" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">🧼 Фильтры</button>
+                        <button data-category="brakes" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">🛑 Тормоза</button>
+                        <button data-category="engine" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">⚙️ Двигатель</button>
+                        <button data-category="lighting" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">💡 Свет</button>
+                    </div>
+                </div>
+            </aside>
 
-<div class="card">
-<h2>Фильтры</h2>
-<p>Оригинальные и аналоги</p>
-<button onclick="window.location.href='https://wa.me/1234567890'">
-Заказать
-</button>
-</div>
+            <!-- Сетка товаров -->
+            <section class="flex-grow">
+                <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Сюда JavaScript вставит карточки -->
+                    <div class="col-span-full text-center py-20">
+                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900 mx-auto"></div>
+                        <p class="mt-4 text-gray-400">Загрузка каталога...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<div class="card">
-<h2>Гидравлика</h2>
-<p>Насосы, цилиндры</p>
-<button onclick="window.location.href='https://wa.me/99365725922'">
-Заказать
-</button>
-</div>
+    <!-- Футер -->
+    <footer class="bg-white border-t border-gray-200 py-10 text-center">
+        <p class="text-gray-400 text-sm">© 2026 RuZZem Volvo Parts. Туркменистан.</p>
+    </footer>
 
-<div class="card">
-<h2>Ходовая часть</h2>
-<p>Гусеницы, ролики</p>
-<button onclick="window.location.href='https://wa.me/1234567890'">
-Заказать
-</button>
-</div>
-
-</div>
-
+    <!-- Подключаем логику -->
+    <script src="app.js"></script>
 </body>
 </html>
