@@ -12,14 +12,16 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     color: white;
 }
 
 /* Чтобы карточки запчастей были на белом фоне и читались */
 .bg-white {
-    background-color: rgba(255, 255, 255, 0.95) !important;
+    background-color: rgba(255, 255, 255, 0.85) !important; /* Делаем чуть прозрачнее */
+    backdrop-filter: blur(10px); /* Размытие фона за карточкой */
     color: #111827 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая светлая рамка */
 }
 
 /* Анимации появления */
