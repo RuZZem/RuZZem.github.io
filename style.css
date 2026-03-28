@@ -1,0 +1,42 @@
+/* Плавный скролл всей страницы */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Кастомные CSS Анимации (Keyframes) */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Классы анимаций */
+.fade-in { animation: fadeIn 0.8s ease-out; }
+.fade-in-down { animation: fadeInDown 0.6s ease-out; }
+.fade-in-up { animation: fadeInUp 0.6s ease-out; }
+
+/* Стиль для карточки товара при наведении (Плавное увеличение) */
+.product-card {
+    transition: transform 0.3s ease, shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Стили для активной кнопки фильтра */
+.filter-btn.active {
+    background-color: #dbeafe !important; /* light blue */
+    color: #1d4ed8 !important; /* dark blue */
+    font-weight: 600;
+}
