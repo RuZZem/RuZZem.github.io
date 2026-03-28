@@ -1,42 +1,47 @@
-/* Плавный скролл всей страницы */
+/* Плавный скролл */
 html {
     scroll-behavior: smooth;
 }
 
-/* Кастомные CSS Анимации (Keyframes) */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* Настройка фона для всего сайта */
+body {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
+        url('volvo-fh12.jpg'); /* ПРОВЕРЬ: если файл .png, замени на .png */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
 }
 
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Чтобы карточки запчастей были на белом фоне и читались */
+.bg-white {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    color: #111827 !important;
 }
 
+/* Анимации появления */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Классы анимаций */
-.fade-in { animation: fadeIn 0.8s ease-out; }
-.fade-in-down { animation: fadeInDown 0.6s ease-out; }
-.fade-in-up { animation: fadeInUp 0.6s ease-out; }
-
-/* Стиль для карточки товара при наведении (Плавное увеличение) */
-.product-card {
-    transition: transform 0.3s ease, shadow 0.3s ease;
+.fade-in-up { 
+    animation: fadeInUp 0.6s ease-out; 
 }
 
+/* Стиль карточек */
+.product-card {
+    transition: transform 0.3s ease;
+}
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-/* Стили для активной кнопки фильтра */
+/* Кнопки фильтров */
 .filter-btn.active {
-    background-color: #dbeafe !important; /* light blue */
-    color: #1d4ed8 !important; /* dark blue */
-    font-weight: 600;
+    background-color: #1d4ed8 !important;
+    color: white !important;
 }
