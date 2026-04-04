@@ -22,6 +22,7 @@ img{
 }
 body{
     color: var(--text-color);
+    background: #fdfdfd;
 }
 html::-webkit-scrollbar{
     width: 0.8rem;
@@ -130,7 +131,7 @@ header{
     min-height: 80rem;
     display: flex;
     align-items: center;
-    background: url('../images/THEBIGONE.jpg');
+    background: url('../images/volvobackgraund.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center left;
@@ -256,7 +257,13 @@ header{
     display: flex;
     flex-direction: column;
     background: #f6f6f6;
-    border-radius: .5rem;
+    border-radius: .1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s ease;
+}
+.parts-container .box:hover {
+    transform: translateY(-8px);
+    box-shadow:0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .parts-container .box img{
     width: 100%;
