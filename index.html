@@ -1,77 +1,249 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RuZZem Volvo Parts — Каталог</title>
-    <!-- Подключаем Tailwind CSS для крутого дизайна -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <title>Responsive Car Sale</title>
+    <!-- link css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- remixicon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
-
-    <!-- Шапка сайта -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <span class="text-2xl font-black text-blue-900 tracking-tighter">RuZZem</span>
-                <span class="text-lg font-light text-gray-400">| VOLVO PARTS</span>
-            </div>
-            <a href="https://wa.me/99365000000" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-bold transition-transform active:scale-95">
-                WhatsApp
-            </a>
-        </div>
-    </nav>
-
-    <!-- Блок поиска -->
-    <header class="bg-blue-900 text-white py-12 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-3xl md:text-5xl font-bold mb-4 fade-in-down">Запчасти Volvo в наличии</h1>
-            <p class="text-blue-200 mb-8 fade-in">Поиск по модели, названию или артикулу</p>
-            
-            <div class="relative max-w-2xl mx-auto fade-in-up">
-                <input type="text" id="searchInput" placeholder="Поиск запчасти..." class="w-full px-6 py-4 rounded-xl text-gray-800 shadow-2xl focus:ring-4 focus:ring-blue-500 outline-none text-lg">
+<body>
+    <!-- Navbar -->
+    <header id="header">
+        <!-- nav container -->
+        <div class="nav container">
+            <!-- menu icon -->
+            <i class="ri-menu-line" id="menu-icon"></i>
+            <!-- logo -->
+            <a href="#" class="logo">Car<span>Sales</span></a>
+            <!-- mav list -->
+            <ul class="navbar">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#parts">Parts</a></li>
+                <li><a href="#blog">Our Blog</a></li>
+            </ul>
+            <!-- search icon -->
+            <i class="ri-search-line" id="search-icon"></i>
+            <!-- search box -->
+            <div class="search-box">
+                <input type="search" name="" id="" placeholder="Search here...">
             </div>
         </div>
     </header>
+    <!-- Navbar End -->
 
-    <!-- Основной контент -->
-    <main class="max-w-7xl mx-auto px-4 py-10">
-        <div class="flex flex-col md:flex-row gap-8">
-            
-            <!-- Боковое меню (Фильтры) -->
-            <aside class="w-full md:w-64 flex-shrink-0">
-                <div class="bg-white p-5 rounded-2xl shadow-sm border border-gray-100 sticky top-24">
-                    <h3 class="font-bold text-gray-500 uppercase text-xs mb-4 tracking-widest">Категории</h3>
-                    <div class="space-y-2" id="categoryFilter">
-                        <button data-category="all" class="filter-btn active w-full text-left px-4 py-2 rounded-xl transition-all">📦 Все детали</button>
-                        <button data-category="filters" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">🧼 Фильтры</button>
-                        <button data-category="brakes" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">🛑 Тормоза</button>
-                        <button data-category="engine" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">⚙️ Двигатель</button>
-                        <button data-category="lighting" class="filter-btn w-full text-left px-4 py-2 rounded-xl transition-all">💡 Свет</button>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Сетка товаров -->
-            <section class="flex-grow">
-                <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Сюда JavaScript вставит карточки -->
-                    <div class="col-span-full text-center py-20">
-                        <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-900 mx-auto"></div>
-                        <p class="mt-4 text-gray-400">Загрузка каталога...</p>
-                    </div>
-                </div>
-            </section>
+    <!-- Home -->
+    <section id="home" class="home">
+        <div class="container">
+            <div class="home-text">
+                <h1>We Have Perfect <br><span>Car</span> For You</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Eos, odit facilis soluta quod esse laudantium?</p>
+                <!-- home button -->
+                <a href="#" class="btn">Discover Now</a>
+            </div>
         </div>
-    </main>
+    </section>
+    <!-- Home End -->
 
-    <!-- Футер -->
-    <footer class="bg-white border-t border-gray-200 py-10 text-center">
-        <p class="text-gray-400 text-sm">© 2026 RuZZem Volvo Parts. Туркменистан.</p>
-    </footer>
+    <!-- Car Section -->
+    <section class="cars" id="cars">
+        <div class="heading">
+            <span>All Cars</span>
+            <h2>We have all types of cars</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore, reprehenderit.</p>
+        </div>
+        <div class="cars-container container">
+            <div class="box">
+                <img src="images/car1.jpg" alt="">
+                <h2>Range Rover</h2>
+            </div>
+            <div class="box">
+                <img src="images/car2.jpg" alt="">
+                <h2>Tesla</h2>
+            </div>
+            <div class="box">
+                <img src="images/car3.jpg" alt="">
+                <h2>BMW</h2>
+            </div>
+            <div class="box">
+                <img src="images/car4.jpg" alt="">
+                <h2>Ford</h2>
+            </div>
+            <div class="box">
+                <img src="images/car5.jpg" alt="">
+                <h2>Audi</h2>
+            </div>
+            <div class="box">
+                <img src="images/car6.jpg" alt="">
+                <h2>Mercedes</h2>
+            </div>
+        </div>
+    </section>
+    <!-- Car Section End -->
 
-    <!-- Подключаем логику -->
-    <script src="app.js"></script>
+    <!-- About -->
+    <section class="about container" id="about">
+        <div class="about-img">
+            <img src="images/about.png" alt="about image">
+        </div>
+        <div class="about-text">
+            <span>About Us</span>
+            <h2>Cheap Prices With <br>Quality Cars</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur doloremque fugit et laudantium, facilis deserunt?</p>
+            <!-- about btn -->
+            <a href="#" class="btn">Learn More</a>
+        </div>
+    </section>
+    <!-- About End -->
+
+    <!-- Parts Section -->
+    <section class="parts" id="parts">
+        <div class="heading">
+            <span>What We Offer</span>
+            <h2>Our Car Is Always Awesome</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aperiam in ipsum tenetur vitae. Sed.</p>
+        </div>
+        <div class="parts-container container">
+            <!-- box 1 -->
+            <div class="box">
+                <img src="images/part1.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$299.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <!-- box 2 -->
+            <div class="box">
+                <img src="images/part2.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$126.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <!-- box 3 -->
+            <div class="box">
+                <img src="images/part3.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$126.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <!-- box 4 -->
+            <div class="box">
+                <img src="images/part4.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$126.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <!-- box 5 -->
+            <div class="box">
+                <img src="images/part5.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$126.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+            <!-- box 6 -->
+            <div class="box">
+                <img src="images/part6.png" alt="">
+                <h3>Auto Spare Parts</h3>
+                <span>$126.99</span>
+                <i class="ri-star-fill">(12 Reviews)</i>
+                <a href="#" class="btn">Buy Now</a>
+                <a href="#" class="details">View Details</a>
+            </div>
+        </div>
+    </section>
+    <!-- Parts Section End -->
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="heading">
+            <span>Blog & News</span>
+            <h2>Our Blog Content</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aperiam in ipsum tenetur vitae. Sed.</p>
+        </div>
+        <!-- blog -->
+        <div class="blog-container container">
+            <!-- box 1 -->
+            <div class="box">
+                <img src="images/car1.jpg" alt="blog 1">
+                <span>Apr 14 2025</span>
+                <h3>Hot To Get Perfect Car</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, quod?</p>
+                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <!-- box 2 -->
+            <div class="box">
+                <img src="images/car2.jpg" alt="blog 1">
+                <span>Apr 11 2025</span>
+                <h3>New E-Car Arrived</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, quod?</p>
+                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <!-- box 3 -->
+            <div class="box">
+                <img src="images/car3.jpg" alt="blog 1">
+                <span>Apr 6 2025</span>
+                <h3>New Icoming Models</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente, quod?</p>
+                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section end -->
+
+    <!-- Footer -->
+    <section class="footer">
+        <div class="footer-container container">
+            <div class="footer-box">
+                <a href="#" class="logo">Car<span>Sales</span></a>
+                <div class="social">
+                    <a href="#"><i class="ri-facebook-line"></i></a>
+                    <a href="#"><i class="ri-twitter-line"></i></a>
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Page</h3>
+                <a href="#">Home</a>
+                <a href="#">Cars</a>
+                <a href="#">Parts</a>
+                <a href="#">Sales</a>
+            </div>
+            <div class="footer-box">
+                <h3>Legal</h3>
+                <a href="#">Privacy</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Sales</a>
+            </div>
+            <div class="footer-box">
+                <h3>Contact</h3>
+                <a href="#">United States</a>
+                <a href="#">Germany</a>
+                <a href="#">France</a>
+                <a href="#">Spain</a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer end -->
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- main js -->
+    <script src="scripts/main.js"></script>
 </body>
 </html>
