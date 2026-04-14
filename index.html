@@ -1,249 +1,1187 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <title>Запчасти для спецтехники</title>
-    <!-- link css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- remixicon -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SpecPart Hub — Запчасти для спецтехники | Spare Parts for Trucks & Construction Equipment</title>
+  <meta name="description" content="Оригинальные запчасти для грузовиков и строительной техники: Volvo, Scania, DAF, Mercedes, Iveco. Артикулы, быстрый поиск, доставка. Original spare parts for trucks and heavy equipment." />
+  <meta name="keywords" content="запчасти спецтехника, spare parts trucks, Volvo запчасти, Scania parts, DAF запчасти, Mercedes Actros parts, строительная техника запчасти, артикул запчасти, construction equipment parts" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="SpecPart Hub — Запчасти для спецтехники" />
+  <meta property="og:description" content="Оригинальные и совместимые запчасти для грузовиков и строительной техники. Original spare parts for heavy trucks and construction machinery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ruzzem.github.io" />
+  <link rel="canonical" href="https://ruzzem.github.io" />
+
+  <!-- Schema.org structured data for SEO -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "SpecPart Hub",
+    "description": "Запчасти для грузовиков и строительной техники / Spare parts for trucks and construction equipment",
+    "url": "https://ruzzem.github.io",
+    "currenciesAccepted": "USD, EUR",
+    "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+    "hasMap": "https://ruzzem.github.io"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --dark: #111418;
+      --panel: #181d24;
+      --border: #2a3040;
+      --yellow: #f5c518;
+      --yellow-dim: #c9a010;
+      --white: #f0f2f5;
+      --muted: #8a95a8;
+      --red: #e03030;
+      --green: #2ecc71;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* LANGUAGE SWITCHER */
+    .lang-bar {
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .lang-btn {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 3px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all .2s;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--yellow);
+      color: var(--black);
+      border-color: var(--yellow);
+    }
+
+    /* NAV */
+    nav {
+      background: var(--dark);
+      border-bottom: 2px solid var(--yellow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--yellow); }
+    .nav-links { display: flex; gap: 30px; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--yellow); }
+    .nav-search {
+      display: flex;
+      align-items: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .nav-search input {
+      background: none;
+      border: none;
+      color: var(--white);
+      padding: 8px 14px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      width: 220px;
+      outline: none;
+    }
+    .nav-search input::placeholder { color: var(--muted); }
+    .nav-search button {
+      background: var(--yellow);
+      border: none;
+      color: var(--black);
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #0d1520 60%, var(--black) 100%);
+      padding: 90px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(245,197,24,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .hero-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 800;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--yellow); font-style: normal; }
+    .hero p { color: var(--muted); font-size: 16px; margin-bottom: 32px; max-width: 460px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 13px 28px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--yellow-dim); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    .hero-stats { display: flex; gap: 32px; }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .stat-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* SEARCH BAR */
+    .search-section {
+      background: var(--panel);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+    }
+    .search-wrap { max-width: 1200px; margin: 0 auto; }
+    .search-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 12px;
+    }
+    .search-bar {
+      display: flex;
+      gap: 0;
+      max-width: 700px;
+    }
+    .search-bar input {
+      flex: 1;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--white);
+      padding: 14px 20px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+    .search-bar input::placeholder { color: var(--muted); }
+    .search-bar button {
+      background: var(--yellow);
+      border: none;
+      color: var(--black);
+      padding: 14px 28px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 0 4px 4px 0;
+      transition: background .2s;
+    }
+    .search-bar button:hover { background: var(--yellow-dim); }
+    .search-hint { font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .search-hint span { color: var(--yellow); cursor: pointer; }
+    #search-results { max-width: 700px; margin-top: 10px; }
+    .search-result-item {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: border-color .2s;
+    }
+    .search-result-item:hover { border-color: var(--yellow); }
+    .sri-code { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; color: var(--yellow); letter-spacing: 1px; }
+    .sri-name { font-size: 14px; }
+    .sri-brand { font-size: 12px; color: var(--muted); }
+    .no-results { padding: 12px 20px; color: var(--muted); font-size: 14px; background: var(--dark); border: 1px solid var(--border); }
+
+    /* BRANDS */
+    section { padding: 70px 40px; }
+    .section-header { max-width: 1200px; margin: 0 auto 40px; }
+    .section-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .section-title span { color: var(--yellow); }
+
+    .brands-grid { display: flex; flex-wrap: wrap; gap: 12px; max-width: 1200px; margin: 0 auto; }
+    .brand-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 20px 28px;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 160px;
+      text-decoration: none;
+    }
+    .brand-card:hover { border-color: var(--yellow); background: #1a2030; }
+    .brand-card.active { border-color: var(--yellow); background: rgba(245,197,24,0.08); }
+    .brand-icon { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; background: var(--dark); display: flex; align-items: center; justify-content: center; }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .brand-icon-placeholder {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--yellow);
+      border: 1px solid var(--border);
+    }
+    .brand-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .brand-count { font-size: 11px; color: var(--muted); }
+
+    /* PRODUCTS */
+    .products-section { background: var(--dark); }
+    .filter-bar {
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-right: 6px; }
+    .filter-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 6px 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--yellow); color: var(--black); border-color: var(--yellow); }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      transition: border-color .2s, transform .2s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .product-card:hover { border-color: var(--yellow); transform: translateY(-3px); }
+    .product-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--dark);
+      position: relative;
+    }
+    .product-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .3s;
+    }
+    .product-card:hover .product-img img { transform: scale(1.04); }
+    .product-badge {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: var(--yellow);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+    }
+    .product-brand-badge {
+      position: absolute;
+      top: 10px; right: 10px;
+      background: rgba(10,10,10,0.85);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+    }
+    .product-body { padding: 18px; }
+    .product-code {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--yellow);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .product-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .product-name-en { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .product-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+    .product-tag {
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--dark);
+      border: 1px solid var(--border);
+      padding: 3px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid var(--border); }
+    .product-price {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--yellow);
+    }
+    .product-price small { font-size: 13px; color: var(--muted); font-weight: 400; }
+    .product-actions { display: flex; gap: 8px; }
+    .btn-wa {
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background .2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-wa:hover { background: #1da851; }
+    .btn-detail {
+      background: var(--dark);
+      color: var(--white);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all .2s;
+      text-decoration: none;
+    }
+    .btn-detail:hover { border-color: var(--yellow); color: var(--yellow); }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img-wrap img {
+      width: 100%; border: 1px solid var(--border);
+    }
+    .about-accent {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: var(--yellow);
+      width: 100px; height: 100px;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    .about-accent-num { font-size: 32px; font-weight: 800; color: var(--black); line-height: 1; }
+    .about-accent-text { font-size: 11px; font-weight: 700; color: var(--black); letter-spacing: 1px; text-align: center; }
+    .about-text h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .about-text h2 span { color: var(--yellow); }
+    .about-text p { color: var(--muted); margin-bottom: 16px; }
+    .about-features { list-style: none; margin: 24px 0; }
+    .about-features li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+    }
+    .about-features li::before { content: '▸'; color: var(--yellow); font-size: 14px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      border-top: 2px solid var(--yellow);
+      padding: 50px 40px 24px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; max-width: 1200px; margin: 0 auto 40px; }
+    .footer-brand p { color: var(--muted); font-size: 14px; margin-top: 12px; max-width: 280px; }
+    .footer-col h4 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--yellow);
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--yellow); }
+    .modal-body { padding: 32px; }
+    .modal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .modal-img { width: 100%; border: 1px solid var(--border); }
+    .modal-code { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 3px; color: var(--yellow); margin-bottom: 8px; }
+    .modal-title { font-family: 'Barlow Condensed', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; }
+    .modal-title-en { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .modal-price { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 800; color: var(--yellow); margin-bottom: 16px; }
+    .modal-specs { list-style: none; margin-bottom: 20px; }
+    .modal-specs li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; display: flex; justify-content: space-between; }
+    .modal-specs li span { color: var(--muted); }
+    .modal-desc { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 20px; }
+    .modal-actions { display: flex; gap: 12px; }
+
+    /* HIDDEN lang content */
+    .ru { display: block; }
+    .en { display: none; }
+    body.lang-en .ru { display: none; }
+    body.lang-en .en { display: block; }
+    /* For inline elements */
+    span.ru, a.ru { display: inline; }
+    span.en, a.en { display: none; }
+    body.lang-en span.ru, body.lang-en a.ru { display: none; }
+    body.lang-en span.en, body.lang-en a.en { display: inline; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .modal-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 50px 20px; }
+      .search-section { padding: 24px 20px; }
+    }
+  </style>
+
 </head>
 <body>
-    <!-- Navbar -->
-    <header id="header">
-        <!-- nav container -->
-        <div class="nav container">
-            <!-- menu icon -->
-            <i class="ri-menu-line" id="menu-icon"></i>
-            <!-- logo -->
-            <a href="#" class="logo">Specpart Hub<span>/Sales</span></a>
-            <!-- mav list -->
-            <ul class="navbar">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#parts">parts</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#parts">Parts</a></li>
-                <li><a href="#blog">Our Blog</a></li>
-            </ul>
-            <!-- search icon -->
-            <i class="ri-search-line" id="search-icon"></i>
-            <!-- search box -->
-            <div class="search-box">
-                <input type="search" name="" id="" placeholder="Search here...">
-            </div>
-        </div>
-    </header>
-    <!-- Navbar End -->
 
-    <!-- Home -->
-    <section id="home" class="home">
-        <div class="container">
-            <div class="home-text">
-                <h1>Запчасти для <br><span>спецтехники</span></h1>
-                <p>Оргинальные запчасти длягрузовиков и строительной техники<br>Originan spare parts for trucks and construction equipment</p>
-                <!-- home button -->
-                <a href="#" class="btn">Смотреть каталог</a>
-            </div>
-        </div>
-    </section>
-    <!-- Home End -->
+<!-- LANGUAGE BAR -->
 
-    <!-- Part Section -->
-    <section class="parts" id="parts">
-        <div class="heading">
-            <span>Категории</span>
-            <h2>Запчасти для любой техники</h2>
-            <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-        </div>
-        <div class="cars-container container">
-            <div class="box">
-                <img src="images/VOLVO.jpg" alt="VOLVO">
-                <h2>VOLVO</h2>
-            </div>
-            <div class="box">
-                <img src="images/SCANIA.jpg" alt="SCANIA">
-                <h2>SCANIA</h2>
-            </div>
-            <div class="box">
-                <img src="images/DAF.jpg" alt="DAF">
-                <h2>DAF</h2>
-            </div>
-            <div class="box">
-                <img src="images/IVECO.jpg" alt="IVECO">
-                <h2>IVECO</h2>
-            </div>
-            <div class="box">
-                <img src="images/THEBIGONE.jpg" alt="THE BIG ONE">
-                <h2>THE BIG ONE</h2>
-            </div>
-            <div class="box">
-                <img src="images/MERCEDES.jpg" alt="MERCEDES">
-                <h2>MERCEDES</h2>
-            </div>
-        </div>
-    </section>
-    <!-- Parts Section End -->
+<div class="lang-bar">
+  <span class="ru">Язык / Language:</span>
+  <span class="en">Language / Язык:</span>
+  <button class="lang-btn active" onclick="setLang('ru')" id="btn-ru">RU</button>
+  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+</div>
 
-    <!-- About -->
-    <section class="about container" id="about">
-        <div class="about-img">
-            <img src="images/about.png" alt="about image">
-        </div>
-        <div class="about-text">
-            <span>About Us</span>
-            <h2>Cheap Prices With <br>Quality parts</h2>
-            <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-            <!-- about btn -->
-            <a href="#" class="btn">Learn More</a>
-        </div>
-    </section>
-    <!-- About End -->
+<!-- NAV -->
 
-    <!-- Parts Section -->
-    <section class="parts" id="parts">
-        <div class="heading">
-            <span>What We Offer</span>
-            <h2>Our parts are Always Awesome</h2>
-            <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-        </div>
-        <div class="parts-container container">
-            <!-- box 1 -->
-            <div class="box">
-                <img src="images/part1.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$100000</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-            <!-- box 2 -->
-            <div class="box">
-                <img src="images/part2.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$2222222</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-            <!-- box 3 -->
-            <div class="box">
-                <img src="images/part3.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$000001</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-            <!-- box 4 -->
-            <div class="box">
-                <img src="images/part4.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$11102001</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-            <!-- box 5 -->
-            <div class="box">
-                <img src="images/part5.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$05011996</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-            <!-- box 6 -->
-            <div class="box">
-                <img src="images/part6.png" alt="">
-                <h3>Auto Spare Parts</h3>
-                <span>$707070</span>
-                <i class="ri-star-fill">(12 Reviews)</i>
-                <a href="#" class="btn">WhatsApp</a>
-                <a href="#" class="details">View Details</a>
-            </div>
-        </div>
-    </section>
-    <!-- Parts Section End -->
+<nav>
+  <a href="#" class="logo">Spec<span>Part</span> Hub</a>
+  <ul class="nav-links">
+    <li><a href="#brands"><span class="ru">Бренды</span><span class="en">Brands</span></a></li>
+    <li><a href="#products"><span class="ru">Каталог</span><span class="en">Catalog</span></a></li>
+    <li><a href="#about"><span class="ru">О нас</span><span class="en">About</span></a></li>
+    <li><a href="#contact"><span class="ru">Контакты</span><span class="en">Contact</span></a></li>
+  </ul>
+  <div class="nav-search">
+    <input type="text" id="nav-search-input" placeholder="Артикул / Part number..." onkeyup="handleSearch(this.value, 'nav-results')" />
+    <button>🔍</button>
+  </div>
+</nav>
 
-    <!-- Blog Section -->
-    <section class="blog" id="blog">
-        <div class="heading">
-            <span>Blog & News</span>
-            <h2>Our Blog Content</h2>
-            <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-        </div>
-        <!-- blog -->
-        <div class="blog-container container">
-            <!-- box 1 -->
-            <div class="box">
-                <img src="images/parts1.jpg" alt="blog 1">
-                <span>okt 11 10 2001</span>
-                <h3>Hot To Get Perfect parts</h3>
-                <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-            <!-- box 2 -->
-            <div class="box">
-                <img src="images/cars2.jpg" alt="blog 1">
-                <span>Apr 11 2025</span>
-                <h3>New parts Arrived</h3>
-                <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-            <!-- box 3 -->
-            <div class="box">
-                <img src="images/car3.jpg" alt="blog 1">
-                <span>Apr 6 2025</span>
-                <h3>New Icoming details</h3>
-                <p>Здесь могла быть вышы реклама.Но вы зажали капусту</p>
-                <a href="#" class="blog-btn">Read More <i class="ri-arrow-right-line"></i></a>
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section end -->
+<!-- HERO -->
 
-    <!-- Footer -->
-    <section class="footer">
-        <div class="footer-container container">
-            <div class="footer-box">
-                <a href="#" class="logo">Parts<span>Sales</span></a>
-                <div class="social">
-                    <a href="#"><i class="ri-facebook-line"></i></a>
-                    <a href="#"><i class="ri-twitter-line"></i></a>
-                    <a href="#"><i class="ri-instagram-line"></i></a>
-                </div>
-            </div>
-            <div class="footer-box">
-                <h3>Page</h3>
-                <a href="#">Home</a>
-                <a href="#">Near home</a>
-                <a href="#">Parts</a>
-                <a href="#">Sales</a>
-            </div>
-            <div class="footer-box">
-                <h3>Legal</h3>
-                <a href="#">Privacy</a>
-                <a href="#">Refund Policy</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Sales</a>
-            </div>
-            <div class="footer-box">
-                <h3>Contact</h3>
-                <a href="#">United States</a>
-                <a href="#">Germany</a>
-                <a href="#">France</a>
-                <a href="#">Spain</a>
-            </div>
-        </div>
-    </section>
-    <!-- Footer end -->
+<section class="hero" id="home">
+  <div class="hero-grid">
+    <div>
+      <p class="hero-label"><span class="ru">Надёжные запчасти</span><span class="en">Reliable spare parts</span></p>
+      <h1>
+        <span class="ru">Запчасти для <em>спецтехники</em></span>
+        <span class="en">Parts for <em>heavy</em> machines</span>
+      </h1>
+      <p class="ru">Оригинальные и совместимые запчасти для грузовиков и строительной техники. Быстрый поиск по артикулу.</p>
+      <p class="en">Original and compatible spare parts for trucks and construction equipment. Fast search by part number.</p>
+      <div class="hero-btns">
+        <a href="#products" class="btn-primary"><span class="ru">Смотреть каталог</span><span class="en">View Catalog</span></a>
+        <a href="#contact" class="btn-outline"><span class="ru">Связаться</span><span class="en">Contact Us</span></a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label"><span class="ru">Артикулов</span><span class="en">Part numbers</span></div></div>
+      <div class="stat"><div class="stat-num">6</div><div class="stat-label"><span class="ru">Брендов</span><span class="en">Brands</span></div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label"><span class="ru">Поддержка</span><span class="en">Support</span></div></div>
+    </div>
+  </div>
+</section>
 
-    <!-- scrollreveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- main js -->
-    <script src="scripts/main.js"></script>
+<!-- SEARCH BY ARTICLE -->
+
+<div class="search-section">
+  <div class="search-wrap">
+    <p class="search-label"><span class="ru">🔍 Поиск по артикулу / коду товара</span><span class="en">🔍 Search by part number / article code</span></p>
+    <div class="search-bar">
+      <input type="text" id="main-search" placeholder="Введите артикул, например: SPH-VOL-001 / Enter part number..." onkeyup="handleSearch(this.value, 'main-results')" />
+      <button onclick="handleSearch(document.getElementById('main-search').value, 'main-results')"><span class="ru">Найти</span><span class="en">Search</span></button>
+    </div>
+    <div id="main-results"></div>
+    <p class="search-hint"><span class="ru">Пример: </span><span class="en">Example: </span><span onclick="fillSearch('SPH-VOL-001')">SPH-VOL-001</span>, <span onclick="fillSearch('SPH-SCA-003')">SPH-SCA-003</span>, <span onclick="fillSearch('SPH-MER-002')">SPH-MER-002</span></p>
+  </div>
+</div>
+
+<!-- BRANDS -->
+
+<section id="brands">
+  <div class="section-header">
+    <p class="section-tag"><span class="ru">Производители</span><span class="en">Manufacturers</span></p>
+    <h2 class="section-title"><span class="ru">Запчасти для <span>любой техники</span></span><span class="en">Parts for <span>any equipment</span></span></h2>
+  </div>
+  <div class="brands-grid">
+    <div class="brand-card" onclick="filterBrand('VOLVO')">
+      <div class="brand-icon-placeholder">V</div>
+      <div><div class="brand-name">Volvo</div><div class="brand-count"><span class="ru">Грузовики / Стройтехника</span><span class="en">Trucks / Construction</span></div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('SCANIA')">
+      <div class="brand-icon-placeholder">S</div>
+      <div><div class="brand-name">Scania</div><div class="brand-count"><span class="ru">Тягачи</span><span class="en">Trucks</span></div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('DAF')">
+      <div class="brand-icon-placeholder">D</div>
+      <div><div class="brand-name">DAF</div><div class="brand-count"><span class="ru">Грузовики</span><span class="en">Trucks</span></div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('MERCEDES')">
+      <div class="brand-icon-placeholder">M</div>
+      <div><div class="brand-name">Mercedes</div><div class="brand-count">Actros / Arocs</div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('IVECO')">
+      <div class="brand-icon-placeholder">I</div>
+      <div><div class="brand-name">Iveco</div><div class="brand-count"><span class="ru">Грузовики</span><span class="en">Trucks</span></div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('CAT')">
+      <div class="brand-icon-placeholder">C</div>
+      <div><div class="brand-name">CAT</div><div class="brand-count"><span class="ru">Стройтехника</span><span class="en">Construction</span></div></div>
+    </div>
+    <div class="brand-card" onclick="filterBrand('')">
+      <div class="brand-icon-placeholder" style="color:var(--muted)">✕</div>
+      <div><div class="brand-name" style="color:var(--muted)"><span class="ru">Все бренды</span><span class="en">All brands</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products-section" id="products">
+  <div class="section-header">
+    <p class="section-tag"><span class="ru">Каталог</span><span class="en">Catalog</span></p>
+    <h2 class="section-title"><span class="ru">Наши <span>запчасти</span></span><span class="en">Our <span>spare parts</span></span></h2>
+  </div>
+  <div class="filter-bar">
+    <span class="filter-label"><span class="ru">Категория:</span><span class="en">Category:</span></span>
+    <button class="filter-btn active" onclick="filterCat('', this)"><span class="ru">Все</span><span class="en">All</span></button>
+    <button class="filter-btn" onclick="filterCat('engine', this)"><span class="ru">Двигатель</span><span class="en">Engine</span></button>
+    <button class="filter-btn" onclick="filterCat('transmission', this)"><span class="ru">Трансмиссия</span><span class="en">Transmission</span></button>
+    <button class="filter-btn" onclick="filterCat('brake', this)"><span class="ru">Тормоза</span><span class="en">Brakes</span></button>
+    <button class="filter-btn" onclick="filterCat('suspension', this)"><span class="ru">Подвеска</span><span class="en">Suspension</span></button>
+    <button class="filter-btn" onclick="filterCat('filter', this)"><span class="ru">Фильтры</span><span class="en">Filters</span></button>
+  </div>
+
+  <div class="products-grid" id="products-grid">
+    <!-- Products injected by JS -->
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <img src="images/about.png" alt="О компании SpecPart Hub" />
+      <div class="about-accent">
+        <div class="about-accent-num">10+</div>
+        <div class="about-accent-text"><span class="ru">лет опыта</span><span class="en">years exp.</span></div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-tag"><span class="ru">О компании</span><span class="en">About us</span></p>
+      <h2><span class="ru">Качество и <span>надёжность</span></span><span class="en">Quality and <span>reliability</span></span></h2>
+      <p class="ru">SpecPart Hub — поставщик оригинальных и совместимых запчастей для грузовиков и строительной техники. Мы работаем с ведущими мировыми брендами и гарантируем качество каждой детали.</p>
+      <p class="en">SpecPart Hub is a supplier of original and compatible spare parts for trucks and construction equipment. We work with leading global brands and guarantee the quality of every part.</p>
+      <ul class="about-features">
+        <li><span class="ru">Оригинальные запчасти и аналоги</span><span class="en">Original parts and quality alternatives</span></li>
+        <li><span class="ru">Поиск по артикулу / OEM-номеру</span><span class="en">Search by article / OEM number</span></li>
+        <li><span class="ru">Доставка по всему миру</span><span class="en">Worldwide delivery</span></li>
+        <li><span class="ru">Гарантия на все запчасти</span><span class="en">Warranty on all parts</span></li>
+        <li><span class="ru">Консультация специалиста</span><span class="en">Expert consultation available</span></li>
+      </ul>
+      <a href="#contact" class="btn-primary"><span class="ru">Написать нам</span><span class="en">Contact Us</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FOOTER -->
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Spec<span style="color:var(--yellow)">Part</span> Hub</div>
+      <p class="ru">Оригинальные и совместимые запчасти для грузовиков и строительной техники по всему миру.</p>
+      <p class="en">Original and compatible spare parts for trucks and construction equipment worldwide.</p>
+    </div>
+    <div class="footer-col">
+      <h4><span class="ru">Навигация</span><span class="en">Navigation</span></h4>
+      <ul>
+        <li><a href="#home"><span class="ru">Главная</span><span class="en">Home</span></a></li>
+        <li><a href="#brands"><span class="ru">Бренды</span><span class="en">Brands</span></a></li>
+        <li><a href="#products"><span class="ru">Каталог</span><span class="en">Catalog</span></a></li>
+        <li><a href="#about"><span class="ru">О нас</span><span class="en">About</span></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="ru">Бренды</span><span class="en">Brands</span></h4>
+      <ul>
+        <li><a href="#">Volvo</a></li>
+        <li><a href="#">Scania</a></li>
+        <li><a href="#">DAF</a></li>
+        <li><a href="#">Mercedes</a></li>
+        <li><a href="#">Iveco</a></li>
+        <li><a href="#">CAT</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4><span class="ru">Контакты</span><span class="en">Contact</span></h4>
+      <ul>
+        <li><a href="mailto:info@specparthub.com">info@specparthub.com</a></li>
+        <li><a href="https://wa.me/YOUR_NUMBER" target="_blank">WhatsApp</a></li>
+        <li><a href="#"><span class="ru">Telegram</span><span class="en">Telegram</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 SpecPart Hub. <span class="ru">Все права защищены.</span><span class="en">All rights reserved.</span></span>
+    <span class="ru">Запчасти для спецтехники</span><span class="en">Spare parts for heavy equipment</span>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-content">
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">✕</button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ===================== PRODUCT DATABASE =====================
+// Article code format: SPH-[BRAND 3 letters]-[3 digit number]
+// Add your real products here!
+const products = [
+  {
+    code: "SPH-VOL-001",
+    nameRu: "Масляный фильтр двигателя",
+    nameEn: "Engine Oil Filter",
+    brand: "VOLVO",
+    category: "filter",
+    price: 85,
+    currency: "USD",
+    oem: "21707132",
+    type: "original",
+    descRu: "Оригинальный масляный фильтр для двигателей Volvo D13. Подходит для моделей FH, FM, FMX. Обеспечивает надёжную фильтрацию масла и защиту двигателя.",
+    descEn: "Original oil filter for Volvo D13 engines. Fits FH, FM, FMX models. Ensures reliable oil filtration and engine protection.",
+    specs: [["OEM номер / OEM#", "21707132"], ["Применимость / Fits", "Volvo FH/FM/FMX D13"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part1.png"
+  },
+  {
+    code: "SPH-VOL-002",
+    nameRu: "Тормозные колодки передние",
+    nameEn: "Front Brake Pads",
+    brand: "VOLVO",
+    category: "brake",
+    price: 210,
+    currency: "USD",
+    oem: "85109409",
+    type: "original",
+    descRu: "Оригинальные передние тормозные колодки для Volvo FH серии. Высокое качество и долгий срок службы.",
+    descEn: "Original front brake pads for Volvo FH series. High quality and long service life.",
+    specs: [["OEM номер / OEM#", "85109409"], ["Применимость / Fits", "Volvo FH 2012+"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part2.png"
+  },
+  {
+    code: "SPH-SCA-001",
+    nameRu: "Воздушный фильтр",
+    nameEn: "Air Filter",
+    brand: "SCANIA",
+    category: "filter",
+    price: 120,
+    currency: "USD",
+    oem: "1874794",
+    type: "original",
+    descRu: "Оригинальный воздушный фильтр для двигателей Scania DC13. Обеспечивает чистоту воздуха, поступающего в двигатель.",
+    descEn: "Original air filter for Scania DC13 engines. Ensures clean air intake for the engine.",
+    specs: [["OEM номер / OEM#", "1874794"], ["Применимость / Fits", "Scania R/S Series DC13"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part3.png"
+  },
+  {
+    code: "SPH-SCA-002",
+    nameRu: "Комплект сцепления",
+    nameEn: "Clutch Kit",
+    brand: "SCANIA",
+    category: "transmission",
+    price: 540,
+    currency: "USD",
+    oem: "1524523",
+    type: "OEM",
+    descRu: "Комплект сцепления для грузовиков Scania. Включает диск, корзину и выжимной подшипник. Подходит для коробок GRS/GRSO.",
+    descEn: "Clutch kit for Scania trucks. Includes disc, pressure plate and release bearing. Fits GRS/GRSO gearboxes.",
+    specs: [["OEM номер / OEM#", "1524523"], ["Применимость / Fits", "Scania G/R/S GRS"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part4.png"
+  },
+  {
+    code: "SPH-DAF-001",
+    nameRu: "Термостат двигателя",
+    nameEn: "Engine Thermostat",
+    brand: "DAF",
+    category: "engine",
+    price: 95,
+    currency: "USD",
+    oem: "1698497",
+    type: "OEM",
+    descRu: "Термостат системы охлаждения для DAF XF/CF с двигателями MX-11 и MX-13.",
+    descEn: "Cooling system thermostat for DAF XF/CF with MX-11 and MX-13 engines.",
+    specs: [["OEM номер / OEM#", "1698497"], ["Применимость / Fits", "DAF XF/CF MX-11/MX-13"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part5.png"
+  },
+  {
+    code: "SPH-MER-001",
+    nameRu: "Амортизатор передний",
+    nameEn: "Front Shock Absorber",
+    brand: "MERCEDES",
+    category: "suspension",
+    price: 310,
+    currency: "USD",
+    oem: "A9603200631",
+    type: "original",
+    descRu: "Оригинальный передний амортизатор для Mercedes-Benz Actros MP4/MP5. Обеспечивает плавный ход и стабильность.",
+    descEn: "Original front shock absorber for Mercedes-Benz Actros MP4/MP5. Ensures smooth ride and stability.",
+    specs: [["OEM номер / OEM#", "A9603200631"], ["Применимость / Fits", "Mercedes Actros MP4/MP5"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part6.png"
+  },
+  {
+    code: "SPH-MER-002",
+    nameRu: "Топливный фильтр",
+    nameEn: "Fuel Filter",
+    brand: "MERCEDES",
+    category: "filter",
+    price: 75,
+    currency: "USD",
+    oem: "A0004770015",
+    type: "original",
+    descRu: "Оригинальный топливный фильтр для Mercedes-Benz Actros/Arocs с двигателями OM471/OM473.",
+    descEn: "Original fuel filter for Mercedes-Benz Actros/Arocs with OM471/OM473 engines.",
+    specs: [["OEM номер / OEM#", "A0004770015"], ["Применимость / Fits", "Mercedes Actros/Arocs OM471/OM473"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part1.png"
+  },
+  {
+    code: "SPH-IVE-001",
+    nameRu: "Комплект прокладок двигателя",
+    nameEn: "Engine Gasket Kit",
+    brand: "IVECO",
+    category: "engine",
+    price: 195,
+    currency: "USD",
+    oem: "504384589",
+    type: "OEM",
+    descRu: "Полный комплект прокладок двигателя Cursor 13 для Iveco Stralis/Trakker.",
+    descEn: "Full engine gasket kit for Cursor 13 engine for Iveco Stralis/Trakker.",
+    specs: [["OEM номер / OEM#", "504384589"], ["Применимость / Fits", "Iveco Stralis/Trakker Cursor 13"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part2.png"
+  },
+  {
+    code: "SPH-CAT-001",
+    nameRu: "Ремень ГРМ",
+    nameEn: "Timing Belt",
+    brand: "CAT",
+    category: "engine",
+    price: 260,
+    currency: "USD",
+    oem: "2W8919",
+    type: "OEM",
+    descRu: "Ремень ГРМ для экскаваторов Caterpillar 320/323 с двигателями C7.",
+    descEn: "Timing belt for Caterpillar 320/323 excavators with C7 engines.",
+    specs: [["OEM номер / OEM#", "2W8919"], ["Применимость / Fits", "CAT 320/323 C7 Engine"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part3.png"
+  },
+  {
+    code: "SPH-SCA-003",
+    nameRu: "Стартер двигателя",
+    nameEn: "Engine Starter",
+    brand: "SCANIA",
+    category: "engine",
+    price: 480,
+    currency: "USD",
+    oem: "1448244",
+    type: "original",
+    descRu: "Оригинальный стартер для грузовиков Scania серии R и G с двигателями DC09/DC13.",
+    descEn: "Original starter motor for Scania R and G series trucks with DC09/DC13 engines.",
+    specs: [["OEM номер / OEM#", "1448244"], ["Применимость / Fits", "Scania R/G DC09/DC13"], ["Тип / Type", "Original"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part4.png"
+  },
+  {
+    code: "SPH-VOL-003",
+    nameRu: "Рулевая тяга",
+    nameEn: "Steering Rod",
+    brand: "VOLVO",
+    category: "suspension",
+    price: 175,
+    currency: "USD",
+    oem: "3171143",
+    type: "OEM",
+    descRu: "Рулевая тяга для Volvo FH/FM. Обеспечивает точное управление и безопасность движения.",
+    descEn: "Steering rod for Volvo FH/FM. Ensures precise handling and driving safety.",
+    specs: [["OEM номер / OEM#", "3171143"], ["Применимость / Fits", "Volvo FH/FM 2008+"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part5.png"
+  },
+  {
+    code: "SPH-DAF-002",
+    nameRu: "Тормозной диск задний",
+    nameEn: "Rear Brake Disc",
+    brand: "DAF",
+    category: "brake",
+    price: 290,
+    currency: "USD",
+    oem: "1657522",
+    type: "OEM",
+    descRu: "Задний тормозной диск для DAF XF105/XF106. Высококачественный чугун, долгий срок службы.",
+    descEn: "Rear brake disc for DAF XF105/XF106. High quality cast iron, long service life.",
+    specs: [["OEM номер / OEM#", "1657522"], ["Применимость / Fits", "DAF XF105/XF106"], ["Тип / Type", "OEM"], ["Гарантия / Warranty", "12 мес / months"]],
+    img: "images/part6.png"
+  }
+];
+
+// ===================== RENDER PRODUCTS =====================
+let currentBrand = '';
+let currentCat = '';
+const isEn = () => document.body.classList.contains('lang-en');
+
+function renderProducts(list) {
+  const grid = document.getElementById('products-grid');
+  if (!list.length) {
+    grid.innerHTML = `<p style="color:var(--muted);grid-column:1/-1;padding:40px 0">${isEn() ? 'No parts found.' : 'Запчасти не найдены.'}</p>`;
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="openModal('${p.code}')">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.nameRu}" loading="lazy" />
+        <span class="product-badge">${p.type.toUpperCase()}</span>
+        <span class="product-brand-badge">${p.brand}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-code">${p.code}</div>
+        <div class="product-name">${isEn() ? p.nameEn : p.nameRu}</div>
+        <div class="product-name-en">OEM: ${p.oem}</div>
+        <div class="product-meta">
+          <span class="product-tag">${p.brand}</span>
+          <span class="product-tag">${isEn() ? getCatEn(p.category) : getCatRu(p.category)}</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">${p.price} <small>${p.currency}</small></div>
+          <div class="product-actions">
+            <a class="btn-wa" href="https://wa.me/YOURNUMBER?text=${encodeURIComponent('Здравствуйте! Интересует запчасть '+p.code+' - '+p.nameRu)}" target="_blank" title="WhatsApp">💬</a>
+            <span class="btn-detail">${isEn() ? 'Details' : 'Подробнее'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getCatRu(c) { return {engine:'Двигатель',transmission:'Трансмиссия',brake:'Тормоза',suspension:'Подвеска',filter:'Фильтры'}[c] || c; }
+function getCatEn(c) { return {engine:'Engine',transmission:'Transmission',brake:'Brakes',suspension:'Suspension',filter:'Filters'}[c] || c; }
+
+function getFiltered() {
+  return products.filter(p =>
+    (!currentBrand || p.brand === currentBrand) &&
+    (!currentCat || p.category === currentCat)
+  );
+}
+
+function filterBrand(brand) {
+  currentBrand = brand;
+  renderProducts(getFiltered());
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.brand-card').forEach(c => c.classList.remove('active'));
+}
+
+function filterCat(cat, btn) {
+  currentCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts(getFiltered());
+}
+
+// ===================== MODAL =====================
+function openModal(code) {
+  const p = products.find(x => x.code === code);
+  if (!p) return;
+  const en = isEn();
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-grid">
+      <div><img class="modal-img" src="${p.img}" alt="${p.nameRu}" /></div>
+      <div>
+        <div class="modal-code">${p.code} &nbsp;|&nbsp; OEM: ${p.oem}</div>
+        <div class="modal-title">${en ? p.nameEn : p.nameRu}</div>
+        <div class="modal-title-en">${en ? p.nameRu : p.nameEn}</div>
+        <div class="modal-price">${p.price} ${p.currency}</div>
+        <ul class="modal-specs">
+          ${p.specs.map(([k,v]) => `<li><span>${k}</span>${v}</li>`).join('')}
+        </ul>
+        <p class="modal-desc">${en ? p.descEn : p.descRu}</p>
+        <div class="modal-actions">
+          <a class="btn-wa" href="https://wa.me/YOURNUMBER?text=${encodeURIComponent('Здравствуйте! Интересует '+p.code+' - '+p.nameRu)}" target="_blank">💬 WhatsApp</a>
+          <button class="btn-outline" onclick="navigator.clipboard.writeText('${p.code}');alert('${en ? 'Code copied!' : 'Код скопирован!'}')">${en ? 'Copy Code' : 'Копировать код'}</button>
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) {
+    document.getElementById('modal').classList.remove('open');
+  }
+}
+
+// ===================== SEARCH =====================
+function handleSearch(val, targetId) {
+  const q = val.trim().toLowerCase();
+  const el = document.getElementById(targetId);
+  if (!el) return;
+  if (!q) { el.innerHTML = ''; return; }
+  const found = products.filter(p =>
+    p.code.toLowerCase().includes(q) ||
+    p.oem.toLowerCase().includes(q) ||
+    p.nameRu.toLowerCase().includes(q) ||
+    p.nameEn.toLowerCase().includes(q) ||
+    p.brand.toLowerCase().includes(q)
+  );
+  if (!found.length) {
+    el.innerHTML = `<div class="no-results">${isEn() ? 'No results found.' : 'Ничего не найдено.'}</div>`;
+    return;
+  }
+  el.innerHTML = found.map(p => `
+    <div class="search-result-item" onclick="openModal('${p.code}');document.getElementById('${targetId}').innerHTML=''">
+      <div>
+        <div class="sri-code">${p.code}</div>
+        <div class="sri-name">${isEn() ? p.nameEn : p.nameRu}</div>
+      </div>
+      <div class="sri-brand">${p.brand} | OEM: ${p.oem}</div>
+    </div>
+  `).join('');
+}
+
+function fillSearch(code) {
+  document.getElementById('main-search').value = code;
+  handleSearch(code, 'main-results');
+}
+
+// ===================== LANGUAGE =====================
+function setLang(lang) {
+  if (lang === 'en') {
+    document.body.classList.add('lang-en');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-ru').classList.remove('active');
+  } else {
+    document.body.classList.remove('lang-en');
+    document.getElementById('btn-ru').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+  }
+  renderProducts(getFiltered());
+}
+
+// ===================== INIT =====================
+renderProducts(products);
+</script>
+
 </body>
 </html>
